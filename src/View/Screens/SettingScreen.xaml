@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="View.Screens.SettingScreen"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:View.Screens"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="{DynamicResource backgroundColor}">
+             
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox FontSize="55" Text="Minesweeper" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" Background="#7733FF" Padding="10 10 10 10" FontWeight="bold"/>
+
+        <Image Source="/Images/bomb.png" VerticalAlignment="Center" MaxHeight="60" MaxWidth="60"/>
+        <Image Source="/Images/bomb.png" VerticalAlignment="Center" MaxHeight="60" MaxWidth="60" Grid.Column="2"/>
+
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="QuickStart" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="30" Style="{DynamicResource titles}"/>
+        <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" Style="{DynamicResource AverageButton}" Content="Easy" Command="{Binding EasyGame}" />
+        <Button Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{DynamicResource AverageButton}" Content="Medium" Command="{Binding MediumGame}"/>
+        <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" Style="{DynamicResource AverageButton}" Content="Hard" Command="{Binding HardGame}"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="Themes" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Style="{DynamicResource titles}"/>
+        <Button Grid.Row="2" Grid.Column="2" Style="{DynamicResource AverageButton}" Content="Light" Margin="0,0,120,0" Click="LightMode"/>
+        <Button Grid.Row="2" Grid.Column="2" Style="{DynamicResource AverageButton}" Content="Dark" Margin="120,0,0,0" Click="DarkMode"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Custom Game" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Style="{DynamicResource titles}"/>
+
+        <TextBlock Grid.Row="4" Text="Board size: (N x N)" HorizontalAlignment="Center" FontSize="16" Style="{DynamicResource titles}"/>
+        <TextBlock Grid.Row="4" Text="{Binding ElementName=sizeslider,Path=Value}" HorizontalAlignment="Center" FontSize="16" Margin="0,25,0,0" Style="{DynamicResource titles}"/>
+        <Slider Grid.Row="4" x:Name="sizeslider"  TickPlacement="BottomRight" IsSnapToTickEnabled="True" TickFrequency="1" Minimum="{Binding MinBoardSize}" Maximum="{Binding MaxBoardSize}" Value="{Binding BoardSize.Value}" Margin="0,50,0,0" MaxWidth="270"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Mine probability" HorizontalAlignment="Center" FontSize="16" Style="{DynamicResource titles}"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ElementName=probabilityslider,Path=Value}" HorizontalAlignment="Center" FontSize="16" Margin="0,25,0,0" Style="{DynamicResource titles}"/>
+        <Slider Grid.Row="4" Grid.Column="1" x:Name="probabilityslider" TickPlacement="BottomRight" IsSnapToTickEnabled="True" TickFrequency="1" Minimum="{Binding MinProbablity}" Maximum="{Binding MaxProbablity}" Value="{Binding MineProbability.Value}" Margin="0,50,0,0" MaxWidth="270"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center" FontSize="16"  Text="Flooding" Style="{DynamicResource titles}"/>
+        <CheckBox Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center"  x:Name="flooding"  IsChecked="{Binding Path=Flooding, Mode=TwoWay}" Margin="0,30,0,0"/>
+
+        <Button Content="Play" Command="{Binding SwitchToPlayScreen}" Grid.Row="5" Grid.Column="1" Background="{DynamicResource ButtonColor}" Margin="0 10 0 10" FontSize="30" FontWeight="bold" Foreground="{DynamicResource textColor}"/>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,13 @@
+{
+    "first-name": "Patryk",
+    "last-name": "Piekarz",
+    "github-url": "https://github.com/ucll-vgo2122/minesweeper-PatrykPiekarz3700ucll",
+    "framework": "WPF",
+    "extensions": [
+        "Choice between themes",
+        "After losing, show all mines and highlight the last uncovered square (which contained a mine)",
+        "Quickstart",
+        "Different font color depending of amount of neighboring mines",
+        "Custom mine probability"
+    ]
+}
